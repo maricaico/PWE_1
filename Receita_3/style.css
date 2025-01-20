@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    background-color: #F5F5DC; /* Bege suave */
+}
+
+#meuAmor {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 300%;
+    color: black; /* Texto preto */
+}
+
+#meuAmor1 {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #FFB6C1; /* Rosa claro suave */
+    color: black; /* Texto preto */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    width: 25%;
+}
+
+#meuAmor1:hover {
+    background-color: #FF9AA2; /* Rosa um pouco mais escuro ao passar o mouse */
+}
+

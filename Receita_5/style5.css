@@ -1,0 +1,69 @@
+body {
+    background-color: rgb(250, 189, 128);
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#botoes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.sorvete {
+    background-color: #E6A97A; /* Cor de fundo mais suave */
+    color: #f9f5f5; /* Texto mais suave */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0; /* Espaçamento entre os sorvetes */
+}
+
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #C5897C; /* Cor de cabeçalho suavizada */
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+td {
+    background-color: #f2d3b1;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #d7a40b;
+}
+
+.botao {
+    background-color: #C5897C; /* Cor de fundo mais suave */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao:hover {
+    background-color: #B37266; /* Cor hover mais suave */
+}
+
+.botao:active {
+    background-color: #C5897C; /* Cor ativa suavizada */
+}
+
+.botao:last-child {
+    margin-right: 0;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">   
+    <head>
+        <meta charset="UTF-8">
+        <title>Objetos JSON - Cervejas</title>
+        <link rel="stylesheet" href="style.css">      
+    </head>
+    <body>
+        <div><button id="botaoCarregar">Carregar cervejas...</button></div>
+        <table>
+            <thead id="thead">
+                <tr>
+                    <th>Nome</th>
+                    <th>Álcool</th>
+                    <th>Estilo</th>
+                    <th>IBU</th>
+                </tr>
+            </thead>
+            <tbody id="cervsTabela"></tbody>
+        </table>
+
+        <script>
+            let cervejas = [
+    {
+        "name": "Skol",
+        "alcohol": "4.7%",
+        "style": "Pilsen",
+        "ibu": "11"
+    },
+    {
+        "name": "Brahma",
+        "alcohol": "4.8%",
+        "style": "Pilsen",
+        "ibu": "14"
+    },
+    {
+        "name": "Bohemia",
+        "alcohol": "5.0%",
+        "style": "Pilsen",
+        "ibu": "15"
+    },
+    {
+        "name": "Antarctica Original",
+        "alcohol": "4.9%",
+        "style": "Pilsen",
+        "ibu": "12"
+    },
+    {
+        "name": "Itaipava",
+        "alcohol": "4.5%",
+        "style": "Pilsen",
+        "ibu": "10"
+    },
+    {
+        "name": "Colorado Indica",
+        "alcohol": "7.0%",
+        "style": "IPA",
+        "ibu": "45"
+    },
+    {
+        "name": "Baden Baden Red Ale",
+        "alcohol": "9.2%",
+        "style": "Red Ale",
+        "ibu": "35"
+    },
+    {
+        "name": "Petra",
+        "alcohol": "4.5%",
+        "style": "Lager",
+        "ibu": "18"
+    },
+    {
+        "name": "Devassa Loura",
+        "alcohol": "4.8%",
+        "style": "Lager",
+        "ibu": "13"
+    },
+    {
+        "name": "Eisenbahn Pale Ale",
+        "alcohol": "4.8%",
+        "style": "Pale Ale",
+        "ibu": "30"
+    }
+]
+
+            const carregarDiv = (cs, targetId = "cervsTabela", lista = ["Nome", "Álcool", "Estilo", "Amargor"], prop = ["name", "alcohol", "style", "ibu"]) => {
+                const tableBody = document.getElementById(targetId); 
+                const thead = document.getElementById("thead"); 
+                thead.innerHTML = lista.map(header => `<th>${header}</th>`).join("");
+
+                const itensHtml = cs.map(item => { 
+                    const itemProp = prop.map(obj => `<td>${item[obj]}</td>`).join("");
+                    return `<tr>${itemProp}</tr>`;
+                });
+
+                tableBody.innerHTML = `${itensHtml.join("\n")}`;
+            };
+
+            const botao = document.getElementById("botaoCarregar");
+            botao.addEventListener("click", () => carregarDiv(cervejas));
+        </script>
+    </body>   
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style5.css">
+        <title>JS - JS Arrow e Callback Functions</title>
+    </head>
+    <body>
+        <div id="meuAmor"></div>
+        <br><br>
+        <div id="containerBotoes">
+            <a href="#" id="botaoCarregar" class="botao">Carregar Sorvetes</a>
+            <a href="#" id="botaoOrdenar" class="botao">Ordenar Sorvetes</a>
+            <a href="#" id="botaoEmbaralhar" class="botao">Embaralhar Sorvetes</a>
+        </div>
+    </body>
+    <script>
+        let sorvetes = ["Bacio di Latte", "Hanngen-Dazs", "Ben & Jerry's", "Bergalli", "Diletto", "Klondike"];
+
+        const transformar = (sorvete) => {
+            return `<div class="sorvete">${sorvete}</div>`;
+        }
+
+        const carregarDiv = (sorvetes) => {
+            const div = document.getElementById("meuAmor");
+            const sorvetesHtml = sorvetes.map(sorvete => transformar(sorvete));
+            div.innerHTML = `${sorvetesHtml.join("\n")}`;
+        };
+
+        const shuffle = (array) => {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        
+        const botaoCarregar = document.getElementById("botaoCarregar");
+	const botaoOrdenar = document.getElementById("botaoOrdenar");
+	const botaoEmbaralhar = document.getElementById("botaoEmbaralhar");
+
+	botaoCarregar.addEventListener("click", () => carregarDiv(sorvetes));
+
+	botaoOrdenar.addEventListener("click", () => {
+    	    const ordenarSorvetes = [...sorvetes].sort();
+            carregarDiv(ordenarSorvetes);
+	});
+
+	botaoEmbaralhar.addEventListener("click", () => {
+    	    const embaralharSorvetes = [...sorvetes];
+            shuffle(embaralharSorvetes);
+            carregarDiv(embaralharSorvetes);
+	});
+
+    </script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <<link rel="stylesheet" href="style7.css">
+      <title>Carregar Endereços</title>
+   </head>
+   <body>
+      <div><button id="botaoCarregar">Carregar Endereços...</button></div>
+      <div id="enderecosDiv"></div>
+   </body>
+   <script>
+      let enderecos = [];
+
+      // Função para carregar a div com os endereços
+      const carregarDiv = (enderecos) => {
+         const div = document.getElementById("enderecosDiv");
+         const itensHtml = enderecos.map(
+            ({ street_address, city, country }) =>
+               `<div>${street_address}, ${city} - ${country}</div>`
+         );
+         div.innerHTML = itensHtml.join("\n");
+      };
+
+      // Função para buscar endereços na API
+      async function carregarEnderecos() {
+         try {
+            let res = await fetch("https://random-data-api.com/api/v2/addresses?size=3");
+            enderecos = await res.json();
+            carregarDiv(enderecos);
+         } catch (err) {
+            document.getElementById("enderecosDiv").innerHTML = "Ocorreu um erro ao carregar os dados.";
+         }
+      }
+
+      // Evento do botão
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", carregarEnderecos);
+   </script>
+</html>
